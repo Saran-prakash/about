@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J Saran Prakash - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+
+
+</head>
+
+<script>
+   document.addEventListener("DOMContentLoaded", function() {
+    const sections = document.querySelectorAll("section");
+    const options = {
+        threshold: 0.3
+    };
+
+    const observer = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    }, options);
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+
+    const navLinks = document.querySelectorAll("nav ul li a");
+    navLinks.forEach(link => {
+        link.addEventListener("click", function(event) {
+            event.preventDefault();
+            const targetId = this.getAttribute("href").substring(1);
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 50,
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
+});
+
+</script>
+<body>
+    <header style="position: sticky; top: 0; width: 100%; z-index: 1000;">
+        <nav>
+            <div class="logo">Saran Prakash</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Work Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#skills">Professional Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    
+    <div class="container" id="home" style="display: flex; align-items: center; justify-content: space-between; background-color: white; padding-left: 50px;padding-right: 50px;">
+        <div>
+            <div class="badge">
+                <span class="dot"></span>
+                <span class="text">Software Developer</span>
+            </div>
+            
+            <div class="bio">
+                <p>Motivated Software Developer with 2+ years of experience in full-stack development. 
+                    Skilled in PHP, jQuery, and DynamoDB, with expertise in building responsive web applications. 
+                    Passionate about problem-solving, mentoring, and integrating advanced technologies like ChatGPT to enhance user experiences.</p>
+
+                    <div class="bio-links">
+                        <a href="mailto:saranprakash50@gmail.com" class="icon-link" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/saranprakash/" target="_blank" class="icon-link" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="resume.pdf" download class="resume-btn">Download Resume</a>
+                    </div>
+            </div>
+        </div>
+        <img src="saranpng.png" alt="Profile Image" style="width: 700px;height: 650px;border-radius: 10px;">
+    </div>
+    <h2 class="summary-heading" id="about">Professional Summary</h2>
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between; background-color: white; padding: 50px;">
+    
+        
+    <!-- Contact Information -->
+    <div class="contact-container">
+        <div class="contact-block">
+            <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+            <div class="contact-details">
+                <strong>Email</strong>
+                <p>saranprakash50@gmail.com</p>
+            </div>
+        </div>
+    
+        <div class="contact-block">
+            <div class="icon"><i class="fa-brands fa-linkedin"></i></div>
+            <div class="contact-details">
+                <strong>LinkedIn</strong>
+                <p>saranprakash</p>
+            </div>
+        </div>
+    
+        <div class="contact-block">
+            <div class="icon"><i class="fa-solid fa-phone"></i></div>
+            <div class="contact-details">
+                <strong>Phone</strong>
+                <p>9380016636</p>
+            </div>
+        </div>
+    
+        <div class="contact-block">
+            <div class="icon"><i class="fa-brands fa-github"></i></div>
+            <div class="contact-details">
+                <strong>GitHub</strong>
+                <p>Saran-prakash</p>
+            </div>
+        </div>
+    
+    
+    <!-- Contact Button -->
+    <div class="contact-button">
+        <a href="mailto:saranprakash50@gmail.com" class="btn">Contact Me</a>
+    </div>
+</div>
+<div class="summary">
+           
+    <p class="summary-text">
+        Passionate and results-oriented <strong>Software Developer</strong> specializing in <strong>Full Stack Development</strong>, problem-solving, and cloud technologies. With <strong>2+ years of experience</strong>, I excel in building responsive and high-performance web applications.
+    </p>
+    <p class="summary-text">
+        Proficient in frontend and backend technologies, including <strong>PHP, jQuery, and DynamoDB</strong>. Experienced in integrating AI-driven solutions like <strong>ChatGPT</strong> to enhance website functionality. A dedicated mentor, I have trained multiple interns, fostering a collaborative learning environment.
+    </p>
+    <p class="summary-text">
+        Eager to leverage my expertise in software development and cloud computing to drive innovation and contribute effectively in dynamic, forward-thinking environments.
+    </p>
+    
+    
+</div>
+    </div>
+    <div id="experience"><h2>Working Experience</h2></div>
+    <div class="container about-wrap" style="display: flex; align-items: center; justify-content: space-between; background-color: white; padding-left: 50px;padding-right: 50px;">
+        <div class="about-left">
+            <div class="section-title">
+                <div class="sub-title">
+                    <div class="title-line"></div>
+                    
+                    <div class="title-line"></div>
+                </div>
+            </div>
+            <div style="text-align: justify;">
+                <p>• Working as a Full Stack Developer on technologies like PHP, jQuery, DynamoDB</p>
+                <p>• Integrated ChatGPT into websites for enhanced functionality.</p>
+                <p>• Worked with DynamoDB and MySQL for backend data management.</p>
+                <p>• Trained multiple interns in various technologies and tools.</p>
+                <p>• Responsible for solving bugs and responsive issues, and creating web services.</p>
+            </div>
+        </div>
+    
+        <div class="about-right">
+
+            <div class="about-experience">
+                <div class="ae-block">
+                    <div class="ae-left">
+                        <div class="ae-bg">
+                            <i class="fa-solid fa-briefcase"></i> 
+                        </div>
+                        <div>
+                            <h5 class="ae-heading">Lumos Learning India Pvt Ltd</h5>
+                            <div>Software Developer</div>
+                        </div>
+                    </div>
+                    <div class="ae-info">
+                        <div>2023-June</div><div class="sa-line"></div><div>Present</div>
+                    </div>
+                </div>
+            
+                <div class="ae-block">
+                    <div class="ae-left">
+                        <div class="ae-bg">
+                            <i class="fa-solid fa-briefcase"></i> 
+                        </div>
+                        <div>
+                            <h5 class="ae-heading">Lumos Learning India Pvt Ltd</h5>
+                            <div>Intern- Software Developer</div>
+                        </div>
+                    </div>
+                    <div class="ae-info">
+                        <div>Jan-2023</div><div class="sa-line"></div><div>May-2023</div>
+                    </div>
+                </div>
+            
+                <div class="ae-block">
+                    <div class="ae-left">
+                        <div class="ae-bg">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                        <div>
+                            <h5 class="ae-heading" style="text-align: left;">Gurugram Police </h5>
+                            <div>Cyber Security Intern | Gurugram Police Cyber Cell</div>
+                        </div>
+                    </div>
+                    <div class="ae-info">
+                        <div>June 2021</div><div class="sa-line"></div><div>July 2021</div>
+                    </div>
+                </div> 
+                <div class="ae-block">
+                    <div class="ae-left">
+                        <div class="ae-bg">
+                            <i class="fa-solid fa-briefcase"></i> 
+                        </div>
+                        <div>
+                            <h5 class="ae-heading">Kerala Police</h5>
+                            <div>Internship</div>
+                        </div>
+                    </div>
+                    <div class="ae-info">
+                        <div>Oct 2019</div><div class="sa-line"></div><div>Oct 2019</div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+    
+    
+    <section id="education" class="education-section">
+        <h2>Education</h2>
+      
+        <div class="education-item">
+          <div class="education-header">
+            <h3>Master of Science in CS&IT</h3>
+            <p class="institution">Jain University</p>
+          </div>
+          <p class="degree-duration">2021 - 2023</p>
+          <p class="activities">
+            Member of the Tech Club, where I collaborated on various projects and workshops, fostering a strong network with peers and industry professionals.
+          </p>
+          <p class="additional-info">
+            Actively participated in competitions and hackathons, enhancing my practical skills and teamwork abilities.
+          </p>
+        </div>
+      
+        <div class="education-item">
+          <div class="education-header">
+            <h3>Bachelor of Science in Forensic Science (Hons)</h3>
+            <p class="institution">Jain University</p>
+          </div>
+          <p class="degree-duration">May 2018 - May 2021</p>
+          <p class="activities">
+            Engaged in various research projects related to forensic data analysis and investigative techniques.
+          </p>
+          <p class="additional-info">
+            Participated in various seminars and conferences, fostering collaboration and knowledge sharing on emerging technologies.
+          </p>
+        </div>
+      </section>
+      
+      <section id="publications-patents" class="publications-patents-section">
+        <h2 id="publications">Publications & Patents</h2>
+        
+        <!-- Publications Section -->
+        <div class="publications">
+          <div class="publication-item">
+            <h4>Big Data Analytics and Machine Learning for Sales Prediction: A Comparative Study of Traditional and Modern Approaches</h4>
+            <p class="journal">JETIR · Mar 28, 2023</p>
+            <a href="https://www.jetir.org/view?paper=JETIR2303627" target="_blank" class="link">Read the paper</a>
+          </div>
+          <div class="publication-item">
+            <h4>A Study During Covid On Digital Devices Dependency & Its Impact On Health</h4>
+            <p class="journal">EPRA International Journal of Multidisciplinary Research · Jun 17, 2021</p>
+            <a href="https://eprajournals.com/IJMR/article/5210" target="_blank" class="link">Read the paper</a>
+          </div>
+          <div class="publication-item">
+            <h4>Fuel Efficiency Prediction using Big Data Analytics: A Machine Learning Approach</h4>
+            <p class="journal">JETIR · 2022</p>
+            <a href="#" class="link">Coming Soon</a>
+          </div>
+          <div class="publication-item">
+            <h4>DIGITAL INSCRIPTIONS</h4>
+            <p class="patent-id">Patent ID: 202241076662202241076662</p>
+            <p class="patent-description">Digital Inscriptions - A website designed to verbalize the richness of our history to the modern world and connect a large network of users, including researchers and scholars who can benefit from the website.</p>
+          </div>
+        </div>
+          
+        </div>
+      </section>
+      <section id="volunteering" class="volunteering-section">
+        <h2>Volunteering</h2>
+      
+        <div class="volunteering-item">
+          <div class="volunteering-header">
+            <div class="volunteer-role">
+              <h3>Scout Volunteer</h3>
+              <p class="organization">The Bharat Scouts & Guides</p>
+            </div>
+            <p class="duration">Jun 2012 - Present · 12 yrs 10 mos</p>
+          </div>
+      
+          <div class="volunteer-details">
+            <p class="volunteer-type"><strong>Area of Focus:</strong> Social Services</p>
+            <p class="description">
+              As a committed member of the Bharat Scouts & Guides, I engaged in various community service initiatives focused on environmental conservation, education, and youth empowerment. Through organizing workshops and participating in local outreach programs, I developed strong leadership and teamwork skills.
+            </p>
+            <p class="achievements">
+              Earned the Rajyapuraskar and Rashtrapati Scout Awards, which not only recognized my dedication but also fueled my passion for community service and personal growth.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="skills" class="skills-section">
+        <h2>Skills</h2>
+      
+        <div class="skills-container">
+          <div class="skill-item">
+            <i class="fab fa-js-square"></i>
+            <h3>JavaScript</h3>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-jquery"></i>
+            <h3>jQuery</h3>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-bootstrap"></i>
+            <h3>Bootstrap</h3>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-php"></i>
+            <h3>PHP</h3>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-database"></i>
+            <h3>MySQL</h3>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-cogs"></i>
+            <h3>Software Development</h3>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-html5"></i>
+            <h3>HTML5</h3>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-css3-alt"></i>
+            <h3>CSS3</h3>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-laptop-code"></i>
+            <h3>Front-End Design</h3>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-cloud"></i>
+            <h3>Amazon DynamoDB</h3>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-code"></i>
+            <h3>Web Development</h3>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-mobile-alt"></i>
+            <h3>Responsive Web Design</h3>
+          </div>
+          
+          <div class="skill-item">
+            <i class="fas fa-bug"></i>
+            <h3>Debugging</h3>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-database"></i>
+            <h3>NoSQL</h3>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-users-cog"></i>
+            <h3>Leadership</h3>
+          </div>
+          
+        </div>
+      </section>
+      <section id="tools" class="tools-section">
+        <h2></h2>
+      
+        <div class="tools-container">
+          <div class="tool-item">
+            <i class="fas fa-file-excel"></i>
+            <h3>Excel</h3>
+          </div>
+          <div class="tool-item">
+            <i class="fas fa-file-word"></i>
+            <h3>Word</h3>
+          </div>
+          <div class="tool-item">
+            <i class="fas fa-file-powerpoint"></i>
+            <h3>PowerPoint</h3>
+          </div>
+          <div class="tool-item">
+            <i class="fab fa-visual-studio"></i>
+            <h3>VSCode</h3>
+          </div>
+          <div class="tool-item">
+            <i class="fab fa-sublime-text"></i>
+            <h3>Sublime</h3>
+          </div>
+          <div class="tool-item">
+            <i class="fas fa-cloud-download-alt"></i>
+            <h3>Postman</h3>
+          </div>
+        </div>
+      </section>
+      
+      <section id="soft-skills" class="soft-skills-section">
+        <h2>Soft Skills</h2>
+      
+        <div class="soft-skills-container">
+          <div class="soft-skill-item">
+            <div class="circle-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3>Team Player</h3>
+          </div>
+          <div class="soft-skill-item">
+            <div class="circle-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <h3>Critical Thinking</h3>
+          </div>
+          <div class="soft-skill-item">
+            <div class="circle-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h3>Reasoning Ability</h3>
+          </div>
+          <div class="soft-skill-item">
+            <div class="circle-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <h3>Time Management</h3>
+          </div>
+          <div class="soft-skill-item">
+            <div class="circle-icon">
+              <i class="fas fa-adjust"></i>
+            </div>
+            <h3>Adaptability</h3>
+          </div>
+        </div>
+      </section>
+      
+      <section id="contact" class="contact-section">
+        <h2>Get In Touch</h2>
+      
+        <form action="#" method="POST">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Your Name">
+          </div>
+      
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Your Email">
+          </div>
+      
+          <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required placeholder="Your Message"></textarea>
+          </div>
+      
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+      <!-- Footer Section -->
+<footer>
+    <div class="footer-content">
+        <p class="footer-text">Made by <strong>Saran Prakash</strong></p>
+        <p class="footer-text">© 2025 All Rights Reserved</p>
+    </div>
+</footer>
+
+      
+</body>
+</html>
