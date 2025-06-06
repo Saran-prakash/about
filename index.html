@@ -8,81 +8,197 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-
-
 </head>
-
-<script>
-    document.getElementById("contactForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent actual form submission
-
-    let message = document.getElementById("message").value; 
-    let linkedInUrl = "https://www.linkedin.com/messaging/compose/";
-
-    // Open LinkedIn in a new tab
-    let newTab = window.open(linkedInUrl, "_blank");
-
-    // Copy the message to the clipboard
-    navigator.clipboard.writeText(message).then(() => {
-        alert("Message copied to clipboard. Paste it in LinkedIn chat!");
-    }).catch(err => {
-        console.error("Failed to copy text:", err);
-    });
-});
-   document.addEventListener("DOMContentLoaded", function() {
-    const sections = document.querySelectorAll("section");
-    const options = {
-        threshold: 0.3
-    };
-
-    const observer = new IntersectionObserver(function(entries, observer) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-            }
-        });
-    }, options);
-
-    sections.forEach(section => {
-        observer.observe(section);
-    });
+<style>
 
 
-    const navLinks = document.querySelectorAll("nav ul li a");
-    navLinks.forEach(link => {
-        link.addEventListener("click", function(event) {
-            event.preventDefault();
-            const targetId = this.getAttribute("href").substring(1);
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) {
-                window.scrollTo({
-                    top: targetSection.offsetTop - 50,
-                    behavior: "smooth"
-                });
-            }
-        });
-    });
-});
+a:focus:not(:focus-visible) {
+  outline: none;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    color: #333;
+    line-height: 1.6;
+}
 
-</script>
+.profile-image {
+  width: 700px;
+  height: 650px;
+  border-radius: 10px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+  .profile-image {
+    width: 100%;  /* Image takes full container width */
+    height: auto; /* height adjusts to keep aspect ratio */
+  }
+  #home{
+  flex-wrap: wrap;
+  }
+  .container{
+    flex-wrap: wrap;
+  }
+  .about-left{
+    width: 100% !important;
+  }
+  .about-right{
+    width: 100% !important;
+  }
+}
+
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+       overflow-x: hidden;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 10px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      padding: 0.5rem;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #007bff;
+    }
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: row !important;
+    }
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #333;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      nav ul {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: #fff;
+        display: none;
+        padding: 1rem 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: max-height 0.3s ease;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      nav ul li {
+        text-align: center;
+        margin: 10px 0;
+      }
+      .logo {
+        margin-bottom: 0px;
+    }
+    }
+    .summary-text{
+      text-align:justify;
+    }
+   .activities,
+  .additional-info,
+  .patent-description,
+  h4 {
+    text-align: justify;
+  }
+
+  .volunteering-section h2 {
+    font-size: 2rem;
+  }
+
+  .bio-links {
+    justify-content: space-around;
+  }
+
+  .skills-section,
+  .tools-section {
+    display: contents;
+  }
+
+</style>
+
 <body>
-    <header style="position: sticky; top: 0; width: 100%; z-index: 1000;">
-        <nav>
-            <div class="logo">Saran Prakash</div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Work Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#skills">Professional Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header>
+  <nav>
+    <div class="logo">Saran Prakash</div>
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Work Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#skills">Professional Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
     
     
-    <div class="container" id="home" style="display: flex; align-items: center; justify-content: space-between; background-color: white; padding-left: 50px;padding-right: 50px;">
+    <div class="container" id="home" style="display: flex; align-items: center; justify-content: space-between; background-color: white; padding-left: 50px;padding-right: 50px; margin-top: 10px;">
         <div>
             <div class="badge">
                 <span class="dot"></span>
@@ -101,11 +217,11 @@
                         <a href="https://www.linkedin.com/in/saranprakash/" target="_blank" class="icon-link" title="LinkedIn">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="J Saran Prakash - Resume.pdf" download class="resume-btn">Download Resume</a>
+                        <a href="resume.pdf" download class="resume-btn">Download Resume</a>
                     </div>
             </div>
         </div>
-        <img src="saranpng.png" alt="Profile Image" style="width: 700px;height: 650px;border-radius: 10px;">
+        <img src="saranpng.png" alt="Profile Image" class="profile-image">
     </div>
     <h2 class="summary-heading" id="about">Professional Summary</h2>
     <div class="container" style="display: flex; align-items: center; justify-content: space-between; background-color: white; padding: 50px;">
@@ -186,12 +302,25 @@
         </div>
     
         <div class="about-right">
-
+            <!-- <h4 class="about-heading">
+                Let’s connect & explore how we can collaborate to bring your vision to life. Feel free to contact me to discuss your next project!
+            </h4>
+            <div class="about-button">
+                <a href="resume.pdf" download class="download-btn">
+                    <i class="fas fa-download"></i> Download Resume
+                </a>
+                <a href="/contact-me" class="about-link">
+                    <i class="fas fa-link"></i> Let’s Collaborate
+                </a>
+            </div> -->
+            <!-- <div class="about-line"></div> -->
+    
+            
             <div class="about-experience">
                 <div class="ae-block">
                     <div class="ae-left">
                         <div class="ae-bg">
-                            <i class="fa-solid fa-briefcase"></i> 
+                            <i class="fa-solid fa-briefcase"></i> <!-- Replaced icon1.svg -->
                         </div>
                         <div>
                             <h5 class="ae-heading">Lumos Learning India Pvt Ltd</h5>
@@ -206,7 +335,7 @@
                 <div class="ae-block">
                     <div class="ae-left">
                         <div class="ae-bg">
-                            <i class="fa-solid fa-briefcase"></i> 
+                            <i class="fa-solid fa-briefcase"></i> <!-- Replaced icon2.svg -->
                         </div>
                         <div>
                             <h5 class="ae-heading">Lumos Learning India Pvt Ltd</h5>
@@ -221,7 +350,7 @@
                 <div class="ae-block">
                     <div class="ae-left">
                         <div class="ae-bg">
-                            <i class="fa-solid fa-briefcase"></i>
+                            <i class="fa-solid fa-briefcase"></i> <!-- Replaced icon3.svg -->
                         </div>
                         <div>
                             <h5 class="ae-heading" style="text-align: left;">Gurugram Police </h5>
@@ -235,7 +364,7 @@
                 <div class="ae-block">
                     <div class="ae-left">
                         <div class="ae-bg">
-                            <i class="fa-solid fa-briefcase"></i> 
+                            <i class="fa-solid fa-briefcase"></i> <!-- Replaced icon3.svg -->
                         </div>
                         <div>
                             <h5 class="ae-heading">Kerala Police</h5>
@@ -326,10 +455,10 @@
       
           <div class="volunteer-details">
             <p class="volunteer-type"><strong>Area of Focus:</strong> Social Services</p>
-            <p class="description">
+            <p class="description" style="text-align:justify;">
               As a committed member of the Bharat Scouts & Guides, I engaged in various community service initiatives focused on environmental conservation, education, and youth empowerment. Through organizing workshops and participating in local outreach programs, I developed strong leadership and teamwork skills.
             </p>
-            <p class="achievements">
+            <p class="achievements" style="text-align:justify;">
               Earned the Rajyapuraskar and Rashtrapati Scout Awards, which not only recognized my dedication but also fueled my passion for community service and personal growth.
             </p>
           </div>
@@ -471,28 +600,17 @@
         </div>
       </section>
       
-      <section id="contact" class="contact-section show">
+      <section id="contact" class="contact-section">
         <h2>Get In Touch</h2>
-    
-        <form id="contactForm">
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required placeholder="Your Name">
-            </div>
-    
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required placeholder="Your Email">
-            </div>
-    
-            <div class="form-group">
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required placeholder="Your Message"></textarea>
-            </div>
-    
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
+      
+        <form action="https://formspree.io/f/xdkzakry" method="POST">
+        <input type="text" name="name" required placeholder="Your Name">
+        <input type="email" name="email" required placeholder="Your Email">
+        <textarea name="message" required placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+
+      </section>
       <!-- Footer Section -->
 <footer>
     <div class="footer-content">
@@ -500,7 +618,57 @@
         <p class="footer-text">© 2025 All Rights Reserved</p>
     </div>
 </footer>
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
 
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+  // Close menu when a link is clicked (on mobile)
+  const navItems = navLinks.querySelectorAll('a');
+  navItems.forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+    });
+  });
+   document.addEventListener("DOMContentLoaded", function() {
+    const sections = document.querySelectorAll("section");
+    const options = {
+        threshold: 0.3
+    };
+
+    const observer = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    }, options);
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    // Smooth scrolling for navigation links
+    const navLinks = document.querySelectorAll("nav ul li a");
+    navLinks.forEach(link => {
+        link.addEventListener("click", function(event) {
+            event.preventDefault();
+            const targetId = this.getAttribute("href").substring(1);
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 50,
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
+});
+
+    </script>
       
 </body>
 </html>
